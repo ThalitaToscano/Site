@@ -140,7 +140,7 @@
         </div>
       </section>
 
-      <section class="section qr-section reveal" id="cartao-digital">
+      <section class="section qr-section" id="cartao-digital">
         <div class="section-heading qr-heading">
           <p class="eyebrow">Cartão Digital</p>
           <h2>Compartilhe meu site em segundos</h2>
@@ -151,7 +151,7 @@
 
         <button class="qr-card" id="qr-trigger" type="button" aria-haspopup="dialog" aria-controls="qr-modal">
           <div class="qr-frame">
-            <img id="qr-image" alt="QR Code para acessar este site">
+            <img id="qr-image" alt="QR Code para acessar este site" loading="eager" decoding="sync">
           </div>
           <div class="qr-copy">
             <span class="contact-label">QR Code</span>
@@ -175,7 +175,7 @@
       <p class="eyebrow">Cartão Digital</p>
       <h2 id="qr-modal-title">Acesse ou compartilhe este site</h2>
       <div class="qr-modal-frame">
-        <img id="qr-image-large" alt="QR Code ampliado para acessar este site">
+        <img id="qr-image-large" alt="QR Code ampliado para acessar este site" loading="eager" decoding="sync">
       </div>
       <a class="button button-primary qr-link" id="qr-site-link" href="https://thalitatoscano.github.io/Site/" target="_blank" rel="noopener noreferrer">
         Abrir site

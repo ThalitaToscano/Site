@@ -121,6 +121,7 @@ function closeQrModal() {
 }
 
 qrTrigger.addEventListener("click", openQrModal);
+qrTrigger.addEventListener("touchend", openQrModal, { passive: true });
 qrClose.addEventListener("click", closeQrModal);
 
 qrModal.addEventListener("click", (event) => {
