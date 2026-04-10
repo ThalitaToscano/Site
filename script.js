@@ -101,10 +101,12 @@ const qrTrigger = document.getElementById("qr-trigger");
 const qrModal = document.getElementById("qr-modal");
 const qrClose = document.getElementById("qr-close");
 const qrSiteLink = document.getElementById("qr-site-link");
+const qrDirectLink = document.getElementById("qr-direct-link");
 
 qrImage.src = qrSource;
 qrImageLarge.src = qrSource;
 qrSiteLink.href = siteUrl;
+qrDirectLink.href = siteUrl;
 
 function openQrModal() {
   qrModal.classList.add("is-open");

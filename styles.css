@@ -405,6 +405,8 @@ h3 {
 }
 
 .qr-card {
+  appearance: none;
+  -webkit-appearance: none;
   display: grid;
   grid-template-columns: 168px minmax(0, 1fr);
   gap: 24px;
@@ -415,6 +417,8 @@ h3 {
   color: var(--text);
   text-align: left;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: none;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   background:
@@ -450,6 +454,22 @@ h3 {
 
 .qr-copy p {
   margin: 8px 0 0;
+}
+
+.qr-tap-hint {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(208, 178, 122, 0.12);
+  border: 1px solid rgba(208, 178, 122, 0.25);
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.qr-direct-link {
+  margin-top: 18px;
 }
 
 .qr-modal {
@@ -576,6 +596,8 @@ h3 {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
+    width: 100%;
+    padding: 22px 18px;
   }
 
   .portrait-ring {
@@ -629,6 +651,12 @@ h3 {
   .qr-frame img {
     width: 124px;
     height: 124px;
+  }
+
+  .qr-tap-hint,
+  .qr-direct-link {
+    width: 100%;
+    justify-content: center;
   }
 
   .qr-modal-content {
