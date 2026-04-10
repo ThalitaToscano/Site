@@ -74,7 +74,7 @@ body::before {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 1.1fr);
   gap: 40px;
   align-items: center;
   min-height: 88vh;
@@ -191,14 +191,15 @@ h3 {
 .hero-portrait {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .portrait-ring {
   position: relative;
   width: min(100%, 380px);
-  aspect-ratio: 1;
+  aspect-ratio: auto;
   padding: 16px;
-  border-radius: 50%;
+  border-radius: 32px;
   background:
     linear-gradient(145deg, rgba(242, 216, 162, 0.92), rgba(242, 216, 162, 0.14)),
     rgba(255, 255, 255, 0.06);
@@ -212,17 +213,35 @@ h3 {
   position: absolute;
   inset: -14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  border-radius: 36px;
   animation: pulseRing 7s linear infinite;
 }
 
 .portrait-ring img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portrait-clean {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  width: min(100%, 1180px);
+}
+
+.portrait-clean::before {
+  display: none;
+}
+
+.portrait-clean img {
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
 }
 
 .section {
@@ -306,6 +325,27 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.card-highlight {
+  display: inline-flex;
+  margin: 14px 0 0;
+  align-items: center;
+  padding: 14px 20px;
+  color: #fffaf0;
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(242, 216, 162, 0.3), rgba(208, 178, 122, 0.12)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(242, 216, 162, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 18px 38px rgba(0, 0, 0, 0.22);
 }
 
 .card-links {
@@ -551,6 +591,37 @@ h3 {
   min-width: 180px;
 }
 
+.floating-whatsapp {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1fa855, #25d366);
+  box-shadow:
+    0 18px 38px rgba(37, 211, 102, 0.28),
+    0 8px 18px rgba(0, 0, 0, 0.24);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 22px 42px rgba(37, 211, 102, 0.34),
+    0 10px 20px rgba(0, 0, 0, 0.28);
+}
+
+.floating-whatsapp svg {
+  width: 32px;
+  height: 32px;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -608,7 +679,7 @@ h3 {
   }
 
   .portrait-ring {
-    width: min(100%, 300px);
+    width: min(100%, 620px);
   }
 }
 
@@ -673,5 +744,17 @@ h3 {
 
   .qr-modal-frame img {
     width: min(100%, 240px);
+  }
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .floating-whatsapp svg {
+    width: 29px;
+    height: 29px;
   }
 }
