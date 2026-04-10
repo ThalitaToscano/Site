@@ -1,4 +1,9 @@
 const revealElements = document.querySelectorAll(".reveal");
+const siteUrl =
+  document.body.dataset.siteUrl ||
+  (window.location.protocol.startsWith("http")
+    ? window.location.href
+    : "https://thalitatoscano.github.io/Site/");
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -87,4 +92,43 @@ drawParticles();
 window.addEventListener("resize", () => {
   resizeCanvas();
   seedParticles();
+});
+
+const qrSource = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(siteUrl)}`;
+const qrImage = document.getElementById("qr-image");
+const qrImageLarge = document.getElementById("qr-image-large");
+const qrTrigger = document.getElementById("qr-trigger");
+const qrModal = document.getElementById("qr-modal");
+const qrClose = document.getElementById("qr-close");
+const qrSiteLink = document.getElementById("qr-site-link");
+
+qrImage.src = qrSource;
+qrImageLarge.src = qrSource;
+qrSiteLink.href = siteUrl;
+
+function openQrModal() {
+  qrModal.classList.add("is-open");
+  qrModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeQrModal() {
+  qrModal.classList.remove("is-open");
+  qrModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+qrTrigger.addEventListener("click", openQrModal);
+qrClose.addEventListener("click", closeQrModal);
+
+qrModal.addEventListener("click", (event) => {
+  if (event.target.dataset.closeQr === "true") {
+    closeQrModal();
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && qrModal.classList.contains("is-open")) {
+    closeQrModal();
+  }
 });

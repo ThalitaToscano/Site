@@ -16,7 +16,7 @@
   >
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-site-url="https://thalitatoscano.github.io/Site/">
   <div class="page-shell">
     <header class="hero" id="inicio">
       <div class="hero-copy reveal">
@@ -139,7 +139,43 @@
           </div>
         </div>
       </section>
+
+      <section class="section qr-section reveal" id="cartao-digital">
+        <div class="section-heading qr-heading">
+          <p class="eyebrow">Cartão Digital</p>
+          <h2>Compartilhe meu site em segundos</h2>
+          <p class="section-text">
+            Use o QR Code para abrir este cartão de visita digital em outro celular ou enviar o link com praticidade.
+          </p>
+        </div>
+
+        <button class="qr-card" id="qr-trigger" type="button" aria-haspopup="dialog" aria-controls="qr-modal">
+          <div class="qr-frame">
+            <img id="qr-image" alt="QR Code para acessar este site">
+          </div>
+          <div class="qr-copy">
+            <span class="contact-label">QR Code</span>
+            <strong>Toque para ampliar</strong>
+            <p>Ao escanear, a pessoa será direcionada para este próprio site.</p>
+          </div>
+        </button>
+      </section>
     </main>
+  </div>
+
+  <div class="qr-modal" id="qr-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+    <div class="qr-modal-backdrop" data-close-qr="true"></div>
+    <div class="qr-modal-content">
+      <button class="qr-close" id="qr-close" type="button" aria-label="Fechar QR Code">×</button>
+      <p class="eyebrow">Cartão Digital</p>
+      <h2 id="qr-modal-title">Acesse ou compartilhe este site</h2>
+      <div class="qr-modal-frame">
+        <img id="qr-image-large" alt="QR Code ampliado para acessar este site">
+      </div>
+      <a class="button button-primary qr-link" id="qr-site-link" href="https://thalitatoscano.github.io/Site/" target="_blank" rel="noopener noreferrer">
+        Abrir site
+      </a>
+    </div>
   </div>
 
   <canvas id="ambient-canvas" aria-hidden="true"></canvas>
